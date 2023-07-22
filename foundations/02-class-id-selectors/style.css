@@ -1,0 +1,18 @@
+.odd {
+  background-color: #e87161;
+  font-family: Verdana;
+}
+
+#second {
+  color: blue;
+  font-size: 36px;
+}
+
+.set-font-size {
+  font-size: 24px;
+}
+
+#fourth {
+  font-weight: bold;
+  background-color: #67e640;
+}
