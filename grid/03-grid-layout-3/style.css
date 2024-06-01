@@ -1,22 +1,40 @@
 * {
+  font-family: sans-serif;
   margin: 0;
   padding: 0;
 }
 
 .container {
+  display: grid;
+  grid-template-columns: 1fr 4fr;
+  gap: 4px;
+
   text-align: center;
 }
 
 .container div {
   padding: 15px;
   font-size: 32px;
-  font-family: Helvetica;
+  font-family: Helvetica, sans-serif;
   font-weight: bold;
   color: white;
 }
 
 .header {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  align-content: center;
+
   background-color: #393f4d;
+}
+
+.logo {
+  justify-self: start;
+}
+
+ul {
+  list-style-type: none;
 }
 
 .menu ul,
@@ -24,8 +42,26 @@
   font-size: 16px;
 }
 
+.menu {
+  align-self: center;
+}
+
+.menu ul {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+
 .sidebar {
+  grid-row: 2 / 4;
+  display: grid;
+  row-gap: 50px;
+
   background-color: #C50208;
+}
+
+.sidebar > * {
+  display: grid;
+  align-content: center;
 }
 
 .sidebar .photo {
@@ -45,7 +81,14 @@
 }
 
 .nav {
+  align-self: center;
+
   background-color: #C50208;
+}
+
+.nav ul {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
 }
 
 .nav ul li {
@@ -54,6 +97,10 @@
 }
 
 .article {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 15px;
+
   background-color: #bccbde;
 }
 
@@ -65,6 +112,7 @@
 }
 
 .article .card {
+  height: 200px;
   background-color: #FFFFFF;
   color: black;
   text-align: center;
@@ -74,6 +122,7 @@
   color: black;
   font-weight: normal;
   font-size: 14px;
+  padding: 5px;
 }
 
 .card .title {
@@ -82,6 +131,8 @@
 }
 
 .footer {
+  grid-column: 1 / -1;
+
   background-color: #393f4d;
 }
 
@@ -89,3 +140,14 @@
   font-size: 13px;
   font-weight: normal;
 }
+
+/*
+- you can center with align-self instead of doing display: grid, align-content: center
+- you don't need to constantly try to center. do the bare minimum
+  then add the centering afterwards
+- it's sufficient to define the columns, and grid will just add more rows
+  depending on how you span things
+- this has the downside that you can't do -rows for grid-rows
+  you'll have to span it explicitly
+- rest of the other mistakes are being off some amount of pixels
+*/
